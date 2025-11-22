@@ -15,8 +15,8 @@ function Footer() {
 				className={`${
 					location.pathname === "/"
 						? "text-white bg-[#32284a]"
-						: "bg-white text-[#362a50]"
-				} mt-10 p-16`}
+						: "bg-white text-[#362a50]" } p-16
+                ${location.pathname === "/login" || location.pathname === "/signup" ? "hidden":""}`}
 			>
 				<section className="grid grid-cols-3 font-light px-14">
 					<div className="flex justify-evenly flex-col">

@@ -1,11 +1,28 @@
-import React from 'react'
+import { cn } from "../../lib/utils/twMerge";
 
-const Button = ({className , children, ...props}) => {
-  return (
-    <button className={`text-xl border rounded-[50px] ${className}`} {...props}>
-        {children}
-    </button>
-  )
+export default function Button({
+	children,
+	variant = "custom",
+	className = "",
+	...props
+}) {
+	const base =
+		"px-4 py-2 rounded-md font-medium focus:outline-none focus:ring";
+
+	const variants = {
+		primary: "bg-sky-600 text-white hover:bg-sky-700",
+		secondary: "bg-slate-200 text-slate-800 hover:bg-slate-300",
+		ghost: "bg-transparent hover:bg-slate-100",
+    custom:"",
+	};
+
+	return (
+		<button
+			{...props}
+			// cn() will merge the classes and ensure your prop wins
+			className={cn(base, variants[variant], className)}
+		>
+			{children}
+		</button>
+	);
 }
-
-export default Button;

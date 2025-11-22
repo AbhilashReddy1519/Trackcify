@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Button from "../ui/button";
+import Button from "../ui/Button";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 function NavBar() {
@@ -15,7 +15,7 @@ function NavBar() {
 					location.pathname === "/"
 						? "bg-[#32284a] text-white"
 						: "bg-white text-[#443049]"
-				}  flex justify-between items-center px-15 h-25 fixed top-0 left-0 w-full`}
+				}  flex justify-between items-center px-15 h-25 z-10 fixed top-0 left-0 w-full`}
 			>
 				<div className="cursor-pointer">
 					<NavLink to="/">
@@ -222,9 +222,7 @@ function NavBar() {
 						</ul>
 					</nav>
 					<Button
-						className={`bg-[#c3d7ff] text-[1rem] text-center py-2 px-4 text-[#32284a] transition-all duration-300 hover:scale-115 ease-in-out cursor-pointer ${
-							location.pathname === "/" ? "" : ""
-						}`}
+						className={`bg-[#c3d7ff] text-[1rem] text-center py-2 px-4 text-[#32284a] transition-all duration-300 hover:scale-115 ease-in-out cursor-pointer rounded-[25px]`}
 					>
 						<Link to="/login">
 							{location.pathname === "/"
