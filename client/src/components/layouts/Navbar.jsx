@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Button from "../ui/button";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 function NavBar() {
 	// 2. Create state to track visibility
@@ -226,7 +226,11 @@ function NavBar() {
 							location.pathname === "/" ? "" : ""
 						}`}
 					>
-						{location.pathname === "/" ? "Get Started" : "Get My Plan"}
+						<Link to="/login">
+							{location.pathname === "/"
+								? "Get Started"
+								: "Get My Plan"}
+						</Link>
 					</Button>
 				</div>
 			</section>
