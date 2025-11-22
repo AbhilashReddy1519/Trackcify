@@ -1,109 +1,232 @@
 import React, { useState } from "react";
 
-
 import Button from "../ui/button";
+import { NavLink, useLocation } from "react-router-dom";
 
 function NavBar() {
-    // 2. Create state to track visibility
-    const [isHovered, setIsHovered] = useState(false);
+	// 2. Create state to track visibility
+	const [isHovered, setIsHovered] = useState(false);
+	const location = useLocation();
 
 	return (
 		<>
-			<section className="bg-[#32284a] text-white flex justify-between items-center px-15 h-25">
+			<section
+				className={`${
+					location.pathname === "/"
+						? "bg-[#32284a] text-white"
+						: "bg-white text-[#443049]"
+				}  flex justify-between items-center px-15 h-25 fixed top-0 left-0 w-full`}
+			>
 				<div className="cursor-pointer">
-					<a href="/">
+					<NavLink to="/">
 						<img
-							src="/logo.png"
+							src={
+								location.pathname === "/"
+									? "/logo.png"
+									: "/logo1.png"
+							}
 							alt="LOGO"
 							width={200}
 							height={200}
-							className=""
+							className={`${location.pathname === "/" ? "" : ""}`}
 						/>
-					</a>
+					</NavLink>
 				</div>
-
 				<div className="flex justify-center items-center gap-8 text-[1rem] font-medium">
 					<nav>
-						<ul className="flex flex-row gap-7 justify-center items-center">
+						<ul
+							className={`flex flex-row gap-7 justify-center items-center ${
+								location.pathname === "/" ? "" : ""
+							}`}
+						>
 							<li>
-								<a href="/" className="hover:text-[#dedaee]">
+								<NavLink
+									to="/"
+									className={({ isActive }) =>
+										`${isActive ? "" : ""} ${
+											location.pathname === "/"
+												? "hover:text-[#dedaee]"
+												: "hover:text-[#775fab] text-[#443361]"
+										}`
+									}
+								>
 									Home
-								</a>
+								</NavLink>
 							</li>
 							<li
-								className={
+								className={`${
 									isHovered
-										? "relative bg-[#32284a] px-2"
+										? location.pathname === "/"
+											? "relative bg-[#32284a] px-2"
+											: "relative bg-white px-2"
 										: "px-2"
-								} // Added relative so dropdown positions correctly
+								}`}
 								onMouseEnter={() => setIsHovered(true)}
 								onMouseLeave={() => setIsHovered(false)}
 							>
-								<p className="cursor-pointer">
+								<p
+									className={`cursor-pointer ${
+										location.pathname === "/"
+											? ""
+											: "text-[#443361]"
+									}`}
+								>
 									What is Trackcify?
 									<i className="fa-solid fa-caret-down"></i>
 								</p>
 
 								{/* 4. Use the state to decide the class */}
 								<ul
-									className={
+									className={`${
 										isHovered
-											? "block absolute bg-[#32284a] rounded px-8 py-4 top-full left-0 border border-[#150d26]"
+											? location.pathname === "/"
+												? "block absolute bg-[#32284a] rounded px-8 py-4 top-full left-0 border border-[#150d26]"
+												: "block absolute bg-white rounded px-8 py-4 top-full left-0 border border-[#150d26]"
 											: "hidden"
-									}
+									} ${
+										location.pathname === "/"
+											? ""
+											: "text-[#443361]"
+									}`}
 								>
-									<li>
-										<a
-											href="#"
-											className="block w-full py-1 hover:text-[#dedaee]"
+									<li className="mb-1">
+										<NavLink
+											to="/about"
+											className={({ isActive }) =>
+												`block w-full py-1 ${
+													isActive
+														? "text-[#775fab]"
+														: "text-[#443361]"
+												} ${
+													location.pathname === "/"
+														? "text-white hover:text-[#dedaee]"
+														: "hover:text-[#775fab]"
+												}`
+											}
 										>
 											About
-										</a>
+										</NavLink>
 									</li>
 									<hr className="border-[#150d26]" />
-									<li>
-										<a
-											href="#"
-											className="block w-full py-1 hover:text-[#dedaee]"
+									<li className={`mb-1`}>
+										<NavLink
+											to="/contact"
+											className={({ isActive }) =>
+												`block w-full py-1 ${
+													isActive
+														? "text-[#775fab]"
+														: "text-[#443361]"
+												} ${
+													location.pathname === "/"
+														? "text-white hover:text-[#dedaee]"
+														: "hover:text-[#775fab]"
+												}`
+											}
 										>
 											Contact
-										</a>
+										</NavLink>
 									</li>
 									<hr className="border-[#150d26]" />
 									<li>
-										<a
-											href="#"
-											className="block w-full py-1 hover:text-[#dedaee]"
+										<NavLink
+											to="/faq"
+											className={({ isActive }) =>
+												`block w-full py-1 ${
+													isActive
+														? "text-[#775fab]"
+														: "text-[#443361]"
+												} ${
+													location.pathname === "/"
+														? "text-white hover:text-[#dedaee]"
+														: "hover:text-[#775fab]"
+												}`
+											}
 										>
 											FAQ (optional)
-										</a>
+										</NavLink>
 									</li>
 								</ul>
 							</li>
 							<li>
-								<a href="#" className="hover:text-[#dedaee]">
+								<NavLink
+									to="/trainers"
+									className={({ isActive }) =>
+										`${
+											isActive
+												? "text-[#775fab]"
+												: "text-[#443361]"
+										} ${
+											location.pathname === "/"
+												? "text-white hover:text-[#dedaee]"
+												: "hover:text-[#775fab]"
+										}`
+									}
+								>
 									Trainers
-								</a>
+								</NavLink>
 							</li>
 							<li>
-								<a href="#" className="hover:text-[#dedaee]">
+								<NavLink
+									to="/exercise"
+									className={({ isActive }) =>
+										`${
+											isActive
+												? "text-[#775fab]"
+												: "text-[#443361]"
+										} ${
+											location.pathname === "/"
+												? "text-white hover:text-[#dedaee]"
+												: "hover:text-[#775fab]"
+										}`
+									}
+								>
 									Exercise Library
-								</a>
+								</NavLink>
 							</li>
 							<li>
-								<a href="#" className="hover:text-[#dedaee]">
+								<NavLink
+									to="/reviews"
+									className={({ isActive }) =>
+										`${
+											isActive
+												? "text-[#775fab]"
+												: "text-[#443361]"
+										} ${
+											location.pathname === "/"
+												? "text-white hover:text-[#dedaee]"
+												: "hover:text-[#775fab]"
+										}`
+									}
+								>
 									Reviews
-								</a>
+								</NavLink>
 							</li>
 							<li>
-								<a href="#" className="hover:text-[#dedaee]">
+								<NavLink
+									to="/jobs"
+									className={({ isActive }) =>
+										`${
+											isActive
+												? "text-[#775fab]"
+												: "text-[#443361]"
+										} ${
+											location.pathname === "/"
+												? "text-white hover:text-[#dedaee]"
+												: "hover:text-[#775fab]"
+										}`
+									}
+								>
 									Jobs
-								</a>
+								</NavLink>
 							</li>
 						</ul>
 					</nav>
-					<Button className="bg-[#c3d7ff] text-[1rem] text-center py-2 px-4 text-[#32284a] transition-all duration-300 hover:scale-115 ease-in-out cursor-pointer">
-						Get Started
+					<Button
+						className={`bg-[#c3d7ff] text-[1rem] text-center py-2 px-4 text-[#32284a] transition-all duration-300 hover:scale-115 ease-in-out cursor-pointer ${
+							location.pathname === "/" ? "" : ""
+						}`}
+					>
+						{location.pathname === "/" ? "Get Started" : "Get My Plan"}
 					</Button>
 				</div>
 			</section>
