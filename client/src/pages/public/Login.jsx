@@ -1,12 +1,10 @@
 import React from 'react'
-
-import login1 from "../../assets/login.jpg";
 import { Link } from 'react-router-dom';
 
 function Login() {
   return (
 		<>
-			<section className="grid grid-cols-2 w-full min-h-screen pb-15 bg-white">
+			<section className="grid grid-cols-2 w-full h-fit bg-white">
 				<div className="w-full h-full bg-white p-10 relative">
 					<div className="mb-10">
 						<h1 className="text-6xl text-center pb-4">
@@ -59,7 +57,7 @@ function Login() {
 									to="/forgetpassword"
 									className="hover:text-[#dd00ff] underline"
 								>
-									Forgot Password
+									Forgot Password?
 								</Link>
 							</p>
 						</div>
@@ -101,7 +99,7 @@ function Login() {
 
 					</div>
 					<img
-						src={login1}
+						src="/images/login.jpg"
 						alt="people"
 						className="h-full bg-center object-center object-cover"
 					/>

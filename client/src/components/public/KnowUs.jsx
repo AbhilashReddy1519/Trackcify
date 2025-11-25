@@ -1,5 +1,4 @@
 import React from 'react';
-import knows from "../../assets/knowus.jpg";
 import Button from '../ui/Button';
 import { Link } from 'react-router-dom';
 
@@ -32,7 +31,7 @@ function KnowUs() {
 							variant=""
 							className="w-full hover:bg-[#271d3b] bg-[#402f61] text-white"
 						>
-							<Link to="/signup" className="w-full block">
+							<Link to="/signup" className="w-full h-full block">
 								Get Started
 							</Link>
 						</Button>
@@ -41,7 +40,7 @@ function KnowUs() {
 				<div className="relative">
 					<div className="w-80 bg-linear-to-r from-white via-transparent to-transparent h-full z-1 absolute top-0 left-0"></div>
 					<img
-						src={knows}
+						src="/images/knowus.jpg"
 						alt="people"
 						className="h-full bg-center object-center object-fill"
 					/>
