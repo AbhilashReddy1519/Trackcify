@@ -11,6 +11,7 @@ import Contact from "../pages/public/Contact";
 import FAQ from "../pages/public/Faq";
 import Login from "../pages/public/login";
 import SignUp from "../pages/public/signup";
+import KnowUs from "../components/public/KnowUs";
 
 
 function RoutesClient() {
@@ -28,6 +29,7 @@ function RoutesClient() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/knowus" element={<KnowUs />} />
       </Routes>
     </>
   )

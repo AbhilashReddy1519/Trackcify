@@ -16,7 +16,7 @@ function Footer() {
 					location.pathname === "/"
 						? "text-white bg-[#32284a]"
 						: "bg-white text-[#362a50]" } p-16
-                ${location.pathname === "/login" || location.pathname === "/signup" ? "hidden":""}`}
+                ${location.pathname === "/login" || location.pathname === "/signup" || location.pathname === "/knowus"? "hidden":""}`}
 			>
 				<section className="grid grid-cols-3 font-light px-14">
 					<div className="flex justify-evenly flex-col">

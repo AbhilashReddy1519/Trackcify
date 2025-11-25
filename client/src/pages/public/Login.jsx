@@ -88,7 +88,7 @@ function Login() {
 						<h1 className="">
 							Don't have an account?{" "}
 							<Link
-								to="/signup"
+								to="/knowus"
 								className="text-[#9308d8] underline transform hover:text-[#dd00ff]"
 							>
 								Sign Up
@@ -96,7 +96,10 @@ function Login() {
 						</h1>
 					</div>
 				</div>
-				<div className="">
+				<div className="relative">
+					<div className='w-80 bg-linear-to-r from-white via-transparent to-transparent h-full z-1 absolute top-0 left-0'>
+
+					</div>
 					<img
 						src={login1}
 						alt="people"
