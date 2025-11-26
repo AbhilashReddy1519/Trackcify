@@ -53,8 +53,10 @@ function MultiStepForm() {
 	}, [currentStep, formData, reset]);
 
 	const onNext = async (data) => {
+		console.log("DATA SEEN BY RHF FOR THIS STEP:", data);
 		// Manual Validation
 		const isValid = await trigger();
+		console.log("IS VALID?", isValid);
 		if (!isValid) return; // stop if validation fails
 		const updatedData = { ...formData, ...data };
 		updateFormData(updatedData);
@@ -73,7 +75,7 @@ function MultiStepForm() {
 		<>
 			<div className="min-h-[83.5vh] flex items-center justify-center bg-white p-4">
 				<div className="bg-white p-4 flex flex-col gap-6 justify-center  border rounded-xl w-full max-w-2xl">
-					<div className="flex justify-center items-center">
+					<div className="mx-5">
 						<ProgressSteps
 							currentStep={currentStep}
 							steps={steps}

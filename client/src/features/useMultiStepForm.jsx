@@ -14,49 +14,46 @@ const stepSchemas = [
 ];
 
 export const steps = [
-			{
-				id: "personal",
-				name: "Personal Info",
-				icon: <i className="fa-solid fa-user-pen"></i>,
-			},
-			{
-				id: "goals",
-				name: "Goals Info",
-				icon: <i className="fa-solid fa-bullseye"></i>,
-			},
-			{
-				id: "measurements",
-				name: "Measurements Info",
-				icon: <i className="fa-solid fa-weight-scale"></i>,
-			},
-			{
-				id: "credentials",
-				name: "Credentials Info",
-				icon: <i className="fa-regular fa-user"></i>,
-			},
-		];
+	{
+		id: "personal",
+		name: "Personal",
+		icon: <i className="fa-solid fa-signature"></i>,
+	},
+	{
+		id: "goals",
+		name: "Goals",
+		icon: <i className="fa-solid fa-bullseye"></i>,
+	},
+	{
+		id: "measurements",
+		name: "Measurements",
+		icon: <i className="fa-solid fa-weight-scale"></i>,
+	},
+	{
+		id: "credentials",
+		name: "Credentials",
+		icon: <i className="fa-regular fa-user"></i>,
+	},
+];
+
+const initialFormData = {
+	firstName: "",
+	lastName: "",
+	email: "",
+	phone: "",
+	goals: [],
+	mainGoal: "",
+	height: 0,
+	weight: 0,
+	age: 0,
+	gender: "",
+	username: "",
+	password: "",
+};
 
 export function useMultiStepForm() {
 	const [currentStep, setCurrentStep] = useState(0);
-	const [formData, setFormData] = useState({
-		// Personal Info
-		firstName: "",
-		lastName: "",
-		email: "",
-        age: "",
-		gender: "",
-        phone: "",
-		// Goals Info
-		fitnessGoal: [],
-        mainGoal: "",
-		// Measurements Info
-		height: 0,
-		weight: 0,
-		// Credentials Info
-        username: "",
-		password: "",
-
-	});
+	const [formData, setFormData] = useState(initialFormData);
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const isFirstStep = currentStep === 0;
@@ -82,7 +79,7 @@ export function useMultiStepForm() {
 	};
 
 	const resetForm = () => {
-		setFormData({});
+		setFormData(initialFormData);
 		setCurrentStep(0);
 		setIsSubmitted(false);
 	};
