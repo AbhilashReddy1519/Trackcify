@@ -72,7 +72,7 @@ function NavBar() {
 									}`}
 								>
 									What is Trackcify?
-									<i className="fa-solid fa-caret-down"></i>
+									<i className="fa-solid fa-angle-down"></i>
 								</p>
 
 								{/* 4. Use the state to decide the class */}

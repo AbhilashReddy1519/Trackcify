@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className={`flex flex-col bg-gray-200 mt-25`}>
+        <div className={`min-h-[50vh] flex flex-col bg-gray-200 mt-25`}>
           <NavBar />
           <main>
             <RoutesClient />

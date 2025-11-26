@@ -1,9 +1,9 @@
-import React from 'react'
+import MultiStepForm from '../../components/layouts/MultiStepForm';
 
 function SignUp() {
   return (
     <>
-      
+      <MultiStepForm />
     </>
   )
 }
