@@ -1,17 +1,11 @@
+// src/features/useMultiStepForm.js
 import { useState } from "react";
 import {
-	credentialsInfoSchema,
+	personalInfoSchema,
 	goalsInfoSchema,
 	measurementsInfoSchema,
-	personalInfoSchema,
+	credentialsInfoSchema,
 } from "../validation/data";
-
-const stepSchemas = [
-	personalInfoSchema,
-	goalsInfoSchema,
-	measurementsInfoSchema,
-	credentialsInfoSchema,
-];
 
 export const steps = [
 	{
@@ -34,6 +28,13 @@ export const steps = [
 		name: "Credentials",
 		icon: <i className="fa-regular fa-user"></i>,
 	},
+];
+
+const stepSchemas = [
+	personalInfoSchema,
+	goalsInfoSchema,
+	measurementsInfoSchema,
+	credentialsInfoSchema,
 ];
 
 const initialFormData = {

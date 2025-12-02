@@ -1,4 +1,4 @@
-import MultiStepForm from '../../components/layouts/MultiStepForm';
+import MultiStepForm from "../../components/layouts/MultiStepForm";
 
 function SignUp() {
   return (

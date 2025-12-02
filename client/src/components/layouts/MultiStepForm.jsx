@@ -1,18 +1,15 @@
-import React, { useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMultiStepForm } from "../../features/useMultiStepForm";
-import ProgressSteps from "../public/ProgressSteps";
-import {
-	CredentialsInfoStep,
-	GoalsInfoStep,
-	MeasurementsInfoStep,
-	PersonalInfoStep,
-} from "../public/steps";
-import Button from "../ui/Button";
+import React, { useEffect } from 'react';
+import { useMultiStepForm } from '../../features/useMultiStepForm';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { CredentialsInfoStep, GoalsInfoStep, MeasurementsInfoStep, PersonalInfoStep } from '../public/steps';
+import ProgressSteps from '../public/ProgressSteps';
+import Button from '../ui/Button';
+
 
 function MultiStepForm() {
-	const {
+
+    const {
 		currentStep,
 		formData,
 		isFirstStep,
@@ -27,33 +24,29 @@ function MultiStepForm() {
 		resetForm,
 	} = useMultiStepForm();
 
-	const {
-		register,
-		handleSubmit,
-		formState: { errors, isSubmitting },
-		trigger,
-		setValue,
-		reset,
-	} = useForm({
-		resolver: zodResolver(getCurrentStepSchema()),
-		mode: "onChange",
-		defaultValues: formData,
-	});
+    const {
+        register,
+        formState: {errors, isSubmitting},
+        handleSubmit,
+        trigger,
+        setValue,
+        reset,
+        watch,
+    } = useForm({
+        resolver: zodResolver(getCurrentStepSchema()),
+        mode: "onChange",
+        defaultValues: formData,
+    })
 
-	const currentForm = [
+    const currentForm = [
 		<PersonalInfoStep register={register} errors={errors} />,
-		<GoalsInfoStep />,
-		<MeasurementsInfoStep />,
-		<CredentialsInfoStep />,
+		<GoalsInfoStep register={register} errors={errors} />,
+		<MeasurementsInfoStep register={register} errors={errors} />,
+		<CredentialsInfoStep register={register} errors={errors} />,
 	];
 
-	useEffect(() => {
-		reset(formData);
-
-	}, [currentStep, formData, reset]);
-
-	const onNext = async (data) => {
-		console.log("DATA SEEN BY RHF FOR THIS STEP:", data);
+    const onNext = async (data) => {
+        console.log("DATA SEEN BY RHF FOR THIS STEP:", data);
 		// Manual Validation
 		const isValid = await trigger();
 		console.log("IS VALID?", isValid);
@@ -69,11 +62,11 @@ function MultiStepForm() {
 		} else {
 			goToNextStep();
 		}
-	};
+    }
 
-	return (
+    return (
 		<>
-			<div className="min-h-[83.5vh] flex items-center justify-center bg-white p-4">
+			<div className="min-h-[83.5vh] flex items-center justify-center bg-white p-4 pb-15">
 				<div className="bg-white p-4 flex flex-col gap-6 justify-center  border rounded-xl w-full max-w-2xl">
 					<div className="mx-5">
 						<ProgressSteps
