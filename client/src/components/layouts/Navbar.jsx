@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Button from "../ui/Button";
+import Button from "../ui/Button.jsx";
 import { Link, NavLink, useLocation } from "react-router-dom";
 
 function NavBar() {

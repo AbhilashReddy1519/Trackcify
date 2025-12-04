@@ -1,21 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import {Routes, Route} from 'react-router-dom';
-import Home from "../pages/public/Home";
-import Trainers from "../pages/public/Trainers";
-import Exercise from "../pages/public/Exercise";
-import Jobs from "../pages/public/Jobs";
-import Reviews from "../pages/public/Reviews";
-import About from "../pages/public/About";
-import Contact from "../pages/public/Contact";
-import FAQ from "../pages/public/Faq";
-import Login from "../pages/public/login";
-import SignUp from "../pages/public/signup";
-import KnowUs from "../components/public/KnowUs";
-
+import { Routes, Route } from 'react-router-dom';
+import Home from '../pages/public/Home.jsx';
+import Trainers from '../pages/public/Trainers.jsx';
+import Exercise from '../pages/public/Exercise.jsx';
+import Jobs from '../pages/public/Jobs.jsx';
+import Reviews from '../pages/public/Reviews.jsx';
+import About from '../pages/public/About.jsx';
+import Contact from '../pages/public/Contact.jsx';
+import FAQ from '../pages/public/Faq.jsx';
+import Login from '../pages/public/login.jsx';
+import SignUp from '../pages/public/signup.jsx';
+import KnowUs from '../components/public/KnowUs.jsx';
 
 function RoutesClient() {
-	return(
+  return (
     <>
       <Routes>
         {/* public */}
@@ -32,7 +31,7 @@ function RoutesClient() {
         <Route path="/knowus" element={<KnowUs />} />
       </Routes>
     </>
-  )
+  );
 }
 
 export default RoutesClient;
