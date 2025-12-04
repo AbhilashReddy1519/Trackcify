@@ -9,8 +9,8 @@ import Reviews from '../pages/public/Reviews.jsx';
 import About from '../pages/public/About.jsx';
 import Contact from '../pages/public/Contact.jsx';
 import FAQ from '../pages/public/Faq.jsx';
-import Login from '../pages/public/login.jsx';
-import SignUp from '../pages/public/signup.jsx';
+import Login from '../pages/public/Login.jsx';
+import SignUp from '../pages/public/Signup.jsx';
 import KnowUs from '../components/public/KnowUs.jsx';
 
 function RoutesClient() {

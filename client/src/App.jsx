@@ -1,7 +1,7 @@
-import NavBar from './components/layouts/Navbar';
-import Footer from './components/layouts/Footer';
+import NavBar from './components/layouts/Navbar.jsx';
+import Footer from './components/layouts/Footer.jsx';
 import { BrowserRouter } from 'react-router-dom';
-import RoutesClient from './routes/routes';
+import RoutesClient from './routes/routes.jsx';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </div>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
