@@ -37,6 +37,21 @@ const stepSchemas = [
   credentialsInfoSchema,
 ];
 
+const defaultData = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  goals: [],
+  mainGoal: '',
+  height: '',
+  weight: '',
+  age: '',
+  gender: '',
+  username: '',
+  password: '',
+};
+
 const initialFormData = {
   firstName: '',
   lastName: '',
@@ -44,9 +59,9 @@ const initialFormData = {
   phone: '',
   goals: [],
   mainGoal: '',
-  height: 0,
-  weight: 0,
-  age: 0,
+  height: '',
+  weight: '',
+  age: '',
   gender: '',
   username: '',
   password: '',
@@ -80,7 +95,7 @@ export function useMultiStepForm() {
   };
 
   const resetForm = () => {
-    setFormData(initialFormData);
+    setFormData(defaultData);
     setCurrentStep(0);
     setIsSubmitted(false);
   };
