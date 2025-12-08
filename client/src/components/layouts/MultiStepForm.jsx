@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
-import { useMultiStepForm } from '../../features/useMultiStepForm.jsx';
+import { useMultiStepForm } from '../../hooks/useMultiStepForm.jsx';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useNavigate } from 'react-router-dom';
+
 import {
   CredentialsInfoStep,
   GoalsInfoStep,
@@ -12,6 +14,7 @@ import ProgressSteps from '../public/ProgressSteps.jsx';
 import Button from '../ui/Button.jsx';
 
 function MultiStepForm() {
+  const navigate = useNavigate();
   const {
     currentStep,
     formData,
@@ -35,6 +38,8 @@ function MultiStepForm() {
     setValue,
     reset,
     watch,
+    getValues,
+    control,
   } = useForm({
     resolver: zodResolver(getCurrentStepSchema()),
     mode: 'onChange',
@@ -43,8 +48,20 @@ function MultiStepForm() {
 
   const currentForm = [
     <PersonalInfoStep register={register} errors={errors} />,
-    <GoalsInfoStep register={register} errors={errors} />,
-    <MeasurementsInfoStep register={register} errors={errors} />,
+    <GoalsInfoStep
+      register={register}
+      errors={errors}
+      setValue={setValue}
+      watch={watch}
+      getValues={getValues}
+      control={control}
+    />,
+    <MeasurementsInfoStep
+      register={register}
+      errors={errors}
+      setValue={setValue}
+      getValues={getValues}
+    />,
     <CredentialsInfoStep register={register} errors={errors} />,
   ];
 
@@ -59,6 +76,8 @@ function MultiStepForm() {
     if (isLastStep) {
       try {
         submitForm(updatedData);
+        resetForm();
+        reset(); // Reset react-hook-form state
       } catch (e) {
         console.error('Submission failed: ', e);
       }

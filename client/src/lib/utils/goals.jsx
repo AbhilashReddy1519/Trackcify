@@ -54,3 +54,7 @@ export const getLabelById = id => {
   const goal = getGoalsById(id);
   return goal ? goal.label : id;
 };
+
+export const getGoalById = id => {
+  return GOALS.filter(goal => goal.id === id);
+}
